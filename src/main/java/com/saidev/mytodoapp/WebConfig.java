@@ -13,7 +13,10 @@ public class WebConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/api/**")
-                        .allowedOrigins("http://localhost:3000, https://develop.d1b4r1mwbub46f.amplifyapp.com")
+                        .allowedOriginPatterns(
+                            "http://localhost:*",
+                            "https://*.amplifyapp.com"
+                        )
                         .allowedMethods("GET", "POST", "PUT", "DELETE")
                         .allowedHeaders("*");
             }
